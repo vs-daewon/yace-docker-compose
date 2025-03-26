@@ -1,0 +1,87 @@
+apiVersion: v1alpha1
+sts-region: ap-northeast-2
+discovery:
+  jobs:
+    - type: AWS/RDS
+      regions: [ap-northeast-2]
+      period: 300
+      length: 300
+      metrics:
+        # NOTE: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html#Aurora.AuroraMySQL.Monitoring.Metrics.instances
+        # cpu
+        - name: CPUUtilization
+          statistics:
+            - Average
+        # memory
+        - name: MemoryUtilization
+          statistics:
+            - Average
+        - name: FreeableMemory
+          statistics:
+            - Average
+        # storage
+        - name: FreeStorageSpace
+          statistics:
+            - Average
+        - name: ReadIOPS
+          statistics:
+            - Average
+        - name: WriteIOPS
+          statistics:
+            - Average
+        - name: ReadLatency
+          statistics:
+            - Average
+        - name: WriteLatency
+          statistics:
+            - Average
+        - name: ReadThroughput
+          statistics:
+            - Average
+        - name: WriteThroughput
+          statistics:
+            - Average
+        - name: SwapUsage
+          statistics:
+            - Average
+        # network
+        - name: NetworkReceiveThroughput
+          statistics:
+            - Average
+        - name: NetworkThroughput
+          statistics:
+            - Average
+        - name: NetworkTransmitThroughput
+          statistics:
+            - Average
+        # database
+        - name: DatabaseConnections
+          statistics:
+            - Average
+        - name: InsertThroughput
+          statistics:
+            - Average
+        - name: DeleteThroughput
+          statistics:
+            - Average
+        - name: DDLThroughput
+          statistics:
+            - Average
+        - name: CommitThroughput
+          statistics:
+            - Average
+        - name: InsertLatency
+          statistics:
+            - Average
+        - name: DeleteLatency
+          statistics:
+            - Average
+        - name: DDLLatency
+          statistics:
+            - Average
+        - name: CommitLatency
+          statistics:
+            - Average
+        - name: Deadlocks
+          statistics:
+            - Average
